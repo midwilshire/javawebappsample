@@ -24,7 +24,7 @@ node {
       // login Azure
       withCredentials([azureServicePrincipal(credentialsId: 'azuresp', subscriptionIdVariable: 'c7a5dfe9-81bd-4d5a-b542-d15f774bc8d8', tenantIdVariable: 'f32b97f0-efb8-4bc3-91ee-18a6e5f635c9', clientSecretVariable: 'e7wnCxJ3yeL3De4N.6KY7cn3PPlIU1.nrC', clientIdVariable: '6bb7ac00-1234-4ef4-8bee-5bdd00171883')]) {
        sh '''
-          az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
+          az login --service-principal -u 6bb7ac00-1234-4ef4-8bee-5bdd00171883 -p e7wnCxJ3yeL3De4N.6KY7cn3PPlIU1.nrC -t f32b97f0-efb8-4bc3-91ee-18a6e5f635c9
           az account set -s $AZURE_SUBSCRIPTION_ID
         '''
       }
