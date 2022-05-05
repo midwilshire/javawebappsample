@@ -22,7 +22,7 @@ node {
       def resourceGroup = 'voya-openshift-jenkins-rg'
       def webAppName = 'voya-openshift-jenkins-webapp'
       // login Azure
-      withCredentials([usernamePassword(credentialsId: 'dca928c1-a67f-4fd2-a9f3-6469cdc34933', passwordVariable: 'e7wnCxJ3yeL3De4N.6KY7cn3PPlIU1.nrC', usernameVariable: '6bb7ac00-1234-4ef4-8bee-5bdd00171883')]) {
+      withCredentials([usernamePassword(credentialsId: 'mylogin', passwordVariable: 'e7wnCxJ3yeL3De4N.6KY7cn3PPlIU1.nrC', usernameVariable: '6bb7ac00-1234-4ef4-8bee-5bdd00171883')]) {
        sh '''
           az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
           az account set -s $AZURE_SUBSCRIPTION_ID
