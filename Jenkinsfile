@@ -8,8 +8,8 @@ def getFtpPublishProfile(def publishProfilesJson) {
 }
 
 node {
-  withEnv(['AZURE_SUBSCRIPTION_ID=<subscription_id>',
-        'AZURE_TENANT_ID=<tenant_id>']) {
+  withEnv(['AZURE_SUBSCRIPTION_ID=c7a5dfe9-81bd-4d5a-b542-d15f774bc8d8',
+        'AZURE_TENANT_ID=f32b97f0-efb8-4bc3-91ee-18a6e5f635c9']) {
     stage('init') {
       checkout scm
     }
@@ -19,10 +19,10 @@ node {
     }
   
     stage('deploy') {
-      def resourceGroup = '<resource_group>'
-      def webAppName = '<app_name>'
+      def resourceGroup = 'voya-openshift-jenkins-rg'
+      def webAppName = 'voya-openshift-jenkins-webapp'
       // login Azure
-      withCredentials([usernamePassword(credentialsId: '<service_princial>', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
+      withCredentials([usernamePassword(credentialsId: 'sp-jenkins', passwordVariable: 'e7wnCxJ3yeL3De4N.6KY7cn3PPlIU1.nrC', usernameVariable: '6bb7ac00-1234-4ef4-8bee-5bdd00171883')]) {
        sh '''
           az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
           az account set -s $AZURE_SUBSCRIPTION_ID
